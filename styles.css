@@ -31,7 +31,7 @@ header{
     background-position: center;
     padding-top: 120px;
     width: 90%;
-    height: 74rem;
+    height: 74rem;/*  */
 }
 
 #btn_menu{
@@ -244,7 +244,7 @@ h4{
 }
 
 .cv{
-    width: 300px;
+    width: 400px;
     margin: auto;
     padding: 0 55px;
     border-radius: 40px;
@@ -373,59 +373,132 @@ h6{
 
 /* SECCION 5: EXPERIENCIA */
 
-.experiencia-container{
-    background-color: #f9f5f2;
-    width: 80%;
-    margin: auto;
-    padding: 10px 100px;
+.slider{
+    background-color: #f2f2f2;
+    padding: 40px 0;
 }
 
-.experiencia-container h5{
+.slider__container{
+    width: 50%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 50px 1fr 50px;
+    align-items: center;
+    gap: 1em;
+    justify-content: center;
+}
+
+.slider__body{
+    grid-column: 2/3;
+    grid-row: 1/2;
+    opacity: 0;
+    pointer-events: none; /* no poder seleccionarlos */
+    display: grid;
+    background-color: #f2f2f2f2;
+
+    grid-template-columns: 1fr; /* max-content */
+    justify-items: center;
+    text-align: center;
+    align-items: center;
+
+    transition: opacity 1.5s;
+
+}
+
+.slider__body--show{
+    opacity: 1;
+    pointer-events: unset; /* seleccionarlos */
+}
+
+.slider__texts{
+    max-width: 600px;
+}
+
+/* .subtitle{
+    font-size: 2.5rem;
     margin-bottom: 20px;
 }
 
-.experiencia{
-    display: flex;
-    justify-content: space-around;
-    margin-top: 40px;
-    margin-bottom: 30px;
+.slider__review{
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 1.7;
+} */
+
+.slider__img{
+    width: 230px;
+    height: 230px;
+    border-radius: 50%;
+    object-fit: cover; /*  no se distorcione*/
+    display: block;
+    margin: 0 auto; /* solo cuando este en moviles */
 }
 
-.experiencia img{
-    width: 80px;
+.slider__arrow{
+    cursor: pointer;
+    width: 90%;
 }
 
-.experiencia>div{
-    display: flex;
-    flex-direction: column;
-    width: 15%;
-    align-items: center;
-    text-align: center;
+.slider__arrow:nth-of-type(2){
+    justify-self: end;
 }
 
-.experiencia>div>span{
-    font-weight: bold;
-}
 
-.experiencia p{
-    margin-top: 10px;
-}
 
-.experiencia .experiencia_1 span{
-    margin-top: 5px;
-}
 
-.experiencia .experiencia_2 span{
-    margin-top: 27px;
-}
+            /* .experiencia-container{
+                background-color: #f9f5f2;
+                width: 80%;
+                margin: auto;
+                padding: 10px 100px;
+            }
 
-.experiencia .experiencia_3 span{
-    margin-top: 3px;
-}
+            .experiencia-container h5{
+                margin-bottom: 20px;
+            }
 
-.experiencia .experiencia_4 span{
-    margin-top: 23px;
-}
+            .experiencia{
+                display: flex;
+                justify-content: space-around;
+                margin-top: 40px;
+                margin-bottom: 30px;
+            }
+
+            .experiencia img{
+                width: 80px;
+            }
+
+            .experiencia>div{
+                display: flex;
+                flex-direction: column;
+                width: 15%;
+                align-items: center;
+                text-align: center;
+            }
+
+            .experiencia>div>span{
+                font-weight: bold;
+            }
+
+            .experiencia p{
+                margin-top: 10px;
+            }
+
+            .experiencia .experiencia_1 span{
+                margin-top: 5px;
+            }
+
+            .experiencia .experiencia_2 span{
+                margin-top: 27px;
+            }
+
+            .experiencia .experiencia_3 span{
+                margin-top: 3px;
+            }
+
+            .experiencia .experiencia_4 span{
+                margin-top: 23px;
+            } */
 
 /* SECCION 6: MI PORTAFOLIO */
 /* ARREGLAR PARA QUE SEA IGUAL QUE LA PROPUESTA */
@@ -515,6 +588,30 @@ footer p{
         font-size: 1rem;
     }
 }
+
+/* SLIDER */
+@media screen and (max-width:768px) {
+    
+    .slider__body{
+        grid-template-columns: 1fr;
+        grid-template-rows: max-content 1fr;
+    }
+
+    .slider__picture{
+        grid-row: 1/2;
+    }
+
+    .slider__img{
+        width: 210px;
+        height: 210px;
+    }
+
+    .slider__container{
+        
+    }
+
+}
+/*  */
 
 @media screen and (max-width:600px){
 
@@ -674,8 +771,13 @@ footer p{
     }
 
     .cv{ /* boton de download cv */
-        width: 40%;
-        padding: 0 30px;
+        max-width: 280px;
+        padding: 0 10px;
+        text-align: center;
+    }
+
+    .cv span{
+        font-size: .8rem;
     }
 
     .cv img{
@@ -699,5 +801,23 @@ footer p{
     }
 
     /* EXPERIENCIA */
+
+    /* SLIDER */
+
+    .slider__container{
+        grid-template-columns: 25px 1fr 25px;
+        text-align: center;
+    }
+
+    .slider__arrow{
+        width: 100%;
+    }
+
+    .slider__img{
+        width: 180px;
+        height: 180px;
+    }
+
+
 }
 
